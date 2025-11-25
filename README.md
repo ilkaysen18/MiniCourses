@@ -1,4 +1,4 @@
 # MiniCourses
 ---
 ## 🌐 Mini Web Dev Course:
-### HTML / CSS / JS Code Snippets
+## HTML / CSS / JS Snippets
