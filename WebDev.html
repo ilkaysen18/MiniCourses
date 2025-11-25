@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Web Features Showcase</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f0f0f0;
+    }
+
+    header {
+        background: #4a3aff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 26px;
+        position: sticky;
+        top: 0;
+        z-index: 20;
+    }
+
+    #searchBox {
+        width: 90%;
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 12px;
+        display: block;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #4a3aff;
+    }
+
+    pre {
+        background: #1b1b1b;
+        color: #00ffb3;
+        padding: 10px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 13px;
+        position: relative;
+        white-space: pre-wrap;
+    }
+
+    .copy-btn {
+        background: #00b36b;
+        border: none;
+        color: white;
+        padding: 6px 10px;
+        font-size: 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        float: right;
+        margin-bottom: 5px;
+    }
+
+    button {
+        padding: 8px 12px;
+        background: #4a3aff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .demo-box {
+        padding: 10px;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 15px;
+    }
+
+    /* Modal */
+    #modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 50;
+    }
+    #modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+    }
+
+    /* Toast */
+    #toast {
+        opacity: 0;
+        transition: 1s;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background:black;
+        color:white;
+        padding:10px;
+        border-radius:5px;
+        z-index: 60;
+    }
+
+    /* Dark mode */
+    .dark {
+        background:black !important;
+        color:white !important;
+    }
+</style>
+</head>
+
+<body>
+
+<header>Web Feature Library — Search + Copy Buttons</header>
+
+<input id="searchBox" placeholder="Search features...">
+
+<div class="container" id="cardContainer">
+
+    <!-- CARD TEMPLATE EXAMPLES BELOW -->
+
+    <div class="card">
+        <div class="title">Basic HTML Structure</div>
+        <div class="demo-box">This page itself is the demo 👍</div>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;My Page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;Hello world!&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+
+    <div class="card">
+        <div class="title">Inline CSS</div>
+        <div class="demo-box"><p style="color:red;">This is red text.</p></div>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;style&gt;
+p { color:red; }
+&lt;/style&gt;</pre>
+    </div>
+
+    <div class="card">
+        <div class="title">JavaScript Alert</div>
+        <button onclick="alert('Hello!')">Click me</button>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;script&gt;
+alert("Hello!");
+&lt;/script&gt;</pre>
+    </div>
+
+    <div class="card">
+        <div class="title">Navbar</div>
+        <div class="demo-box" style="background:#333;padding:10px;color:white;">
+            <a href="#" style="color:white;margin-right:10px;">Home</a>
+            <a href="#" style="color:white;">About</a>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;nav style="background:#333;padding:10px;color:white;"&gt;
+  &lt;a href="#"&gt;Home&lt;/a&gt;
+  &lt;a href="#"&gt;About&lt;/a&gt;
+&lt;/nav&gt;</pre>
+    </div>
+
+    <div class="card">
+        <div class="title">Dark Mode Toggle</div>
+        <button onclick="document.body.classList.toggle('dark')">Toggle Dark Mode</button>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;button onclick="document.body.classList.toggle('dark')"&gt;Dark Mode&lt;/button&gt;
+
+&lt;style&gt;
+.dark { background:black; color:white; }
+&lt;/style&gt;</pre>
+    </div>
+
+    <div class="card">
+        <div class="title">Modal Popup</div>
+        <button onclick="modal.style.display='flex'">Open Modal</button>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;button onclick="m.style.display='flex'"&gt;Open&lt;/button&gt;</pre>
+    </div>
+
+    <div class="card">
+        <div class="title">Accordion</div>
+        <div class="demo-box">
+            <div onclick="acc1.style.display=acc1.style.display=='block'?'none':'block'"
+                 style="background:#eee;padding:10px;cursor:pointer;border-radius:6px;">
+                Click me
+            </div>
+            <div id="acc1" style="display:none;padding:10px;background:#ddd;border-radius:6px;">
+                Accordion content here.
+            </div>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;div onclick="p.style.display=p.style.display=='block'?'none':'block'"&gt;Title&lt;/div&gt;
+&lt;div id="p" style="display:none;"&gt;Content&lt;/div&gt;</pre>
+    </div>
+
+    <div class="card">
+        <div class="title">Tabs</div>
+        <div class="demo-box">
+            <button onclick="tab1.style.display='block';tab2.style.display='none';">Tab 1</button>
+            <button onclick="tab2.style.display='block';tab1.style.display='none';">Tab 2</button>
+            <div id="tab1">Tab One Content</div>
+            <div id="tab2" style="display:none;">Tab Two Content</div>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+<pre>&lt;button onclick="..."&gt;Tab 1&lt;/button&gt;</pre>
+    </div>
+
+</div>
+
+<!-- Global Elements -->
+<div id="modal" onclick="modal.style.display='none'">
+    <div id="modal-content">
+        This is a modal.<br><button onclick="modal.style.display='none'">Close</button>
+    </div>
+</div>
+
+<div id="toast">Saved!</div>
+
+<script>
+/* Copy Code Button */
+function copyCode(btn) {
+    const code = btn.nextElementSibling.innerText;
+    navigator.clipboard.writeText(code);
+    showToast("Code copied!");
+}
+
+/* Toast Message */
+function showToast(msg) {
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.style.opacity = 1;
+    setTimeout(() => toast.style.opacity = 0, 1700);
+}
+
+/* Search Filtering */
+const searchBox = document.getElementById("searchBox");
+const cards = document.querySelectorAll(".card");
+
+searchBox.addEventListener("input", () => {
+    const term = searchBox.value.toLowerCase();
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(term) ? "block" : "none";
+    });
+});
+</script>
+
+</body>
+</html>
