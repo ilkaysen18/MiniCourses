@@ -1,6 +1,6 @@
 # MiniCourses
 <style>
-p { color:blue; }
+  p { color: blue; }
 </style>
 
 ---
