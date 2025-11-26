@@ -2,14 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>MiniCourses - Code Testing Environment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTML Code Tester</title>
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f0f0f0;
+    }
+
+    header {
+        font-family: Rounded, sans-serif;
+        background: #E0D45C;
+        font-weight: bold;        
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 26px;
+        position: sticky;
+        top: 0;
+        z-index: 20;
   }
   .tabs {
     display: flex;
@@ -54,6 +67,8 @@
 </head>
 <body>
 
+<title>Code Testing Environment: HTML / CSS / JS Webpage Preview Environment</title>
+ 
 <div class="tabs">
   <div class="tab active" onclick="openTab('code')">Code</div>
   <div class="tab" onclick="openTab('preview')">Preview</div>
